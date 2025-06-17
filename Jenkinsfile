@@ -1,14 +1,14 @@
 pipeline{
     agent any
 	tools {
-        maven 'maven-3.6.3'
-        jdk 'jdk8'
+        maven 'Devops maven 3.9.10'
+        jdk 'Learner JDK'
     }
     stages{
         stage('init'){
             steps{
                 script{
-                    println("Hello world")
+                    println("Hello world and Welcome to DEVOPS")
                 }
             }
         }
@@ -34,9 +34,9 @@ pipeline{
         stage('upload jar to AWS'){
             steps{
                 script{                    
-                    withAWS(credentials: 'my-cba-aws-credential', region: 'eu-west-2') {
+                    withAWS(credentials: 'Learner', region: 'eu-west-2') {
                         sh '''echo "Uploading the tested jar file to s3 for later deployments" '''
-                        s3Upload(pathStyleAccessEnabled: true, payloadSigningEnabled: true, file:'maven_project/target/my-app-1.0-SNAPSHOT.jar', bucket:'document-ak', path:'ci-demo/javaapp/myapp.jar')
+                        s3Upload(pathStyleAccessEnabled: true, payloadSigningEnabled: true, file:'maven_project/target/my-app-1.0-SNAPSHOT.jar', bucket:'learning-rest-api', path:'ci-demo/javaapp/myapp.jar')
                     }
                 }
             }
