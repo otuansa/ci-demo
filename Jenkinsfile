@@ -1,8 +1,8 @@
 pipeline{
     agent any
 	tools {
-        maven 'Devops maven 3.9.10'
-        jdk 'Learner JDK'
+        maven 'learner-maven-3.8.7'
+        jdk 'learner-jdk'
     }
     stages{
         stage('init'){
